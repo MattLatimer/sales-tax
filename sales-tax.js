@@ -23,7 +23,7 @@ var companySalesData = [
 ];
 
 function sumArray(list) {
-  return list.reduce(function(a, b){return a+b;});
+  return list.reduce(function(a, b){ return a + b; });
 }
 
 function calculateSalesTax(salesData, taxRates) {
@@ -33,7 +33,7 @@ function calculateSalesTax(salesData, taxRates) {
     var company = salesData[i].name;
 
     if(!salesTax[company]) {
-      salesTax[company] = { totalSales : 0, totalTaxes : 0 };
+      salesTax[company] = { totalSales: 0, totalTaxes: 0 };
     }
 
     var sales = sumArray(salesData[i].sales);
