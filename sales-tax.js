@@ -22,25 +22,23 @@ var companySalesData = [
   }
 ];
 
-function sumArray(array) {
-  var sum = 0;
-  for (var i = 0; i < array.length; i++) {
-    sum += array[i];
-  }
-  return sum;
+function sumArray(list) {
+  return list.reduce(function(a, b){return a+b;});
 }
 
 function calculateSalesTax(salesData, taxRates) {
   var salesTax = {};
 
   for (var i = 0; i < salesData.length; i++) {
+    var company = salesData[i].name;
 
-    if(!salesTax[salesData[i].name]) {
-      salesTax[salesData[i].name] = { totalSales : 0, totalTaxes : 0 };
+    if(!salesTax[company]) {
+      salesTax[company] = { totalSales : 0, totalTaxes : 0 };
     }
+
     var sales = sumArray(salesData[i].sales);
-    salesTax[salesData[i].name].totalSales += sales;
-    salesTax[salesData[i].name].totalTaxes += sales * taxRates[salesData[i].province];
+    salesTax[company].totalSales += sales;
+    salesTax[company].totalTaxes += sales * taxRates[salesData[i].province];
   }
 
   return  salesTax;
@@ -60,3 +58,4 @@ console.log(results);
   }
 }
 */
+
